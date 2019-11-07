@@ -9,7 +9,15 @@ class EmpleadoVO implements JsonSerializable
     private $fechaIngreso;
     private $idfranquicia;
     private $idLocalidad;
+    private $salario;
 
+    public function getSalario(){
+        return $this->salario;
+    }
+
+public function setSalario($salario){
+    $this->salario = $salario;
+}
 
     public function getId()
     {

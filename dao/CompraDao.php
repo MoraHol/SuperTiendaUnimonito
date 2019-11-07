@@ -18,7 +18,9 @@ class CompraDao
     public function findById($id)
     { }
     public function save($sale)
-    { }
+    {
+        $this->db->connect();
+     }
     public function update($sale)
     { }
 }

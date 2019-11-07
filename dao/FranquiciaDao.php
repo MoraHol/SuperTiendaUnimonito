@@ -8,27 +8,42 @@ require_once(MODEL_PATH . "FranquiciaVO.php");
 class FranquiciaDao
 {
 
-    public function __construct()
-    {
-        $this->db = new DBOperator($_ENV["db_host"], $_ENV["db_user"], $_ENV["db_name"], $_ENV["db_pass"]);
-    }
+  public function __construct()
+  {
+    $this->db = new DBOperator($_ENV["db_host"], $_ENV["db_user"], $_ENV["db_name"], $_ENV["db_pass"]);
+  }
 
-    public function findById($id)
-    {
-        $this->db->connect();
-        $query = "SELECT * FROM `franquicias` WHERE `id_franquicia` = $id";
-        $franquiciaDB = $this->db->consult($query, "yes");
-        $franquiciaDB = $franquiciaDB[0];
-        $franquicia = new FranquiciaVO();
-        $franquicia->setId($franquiciaDB["id_franquicia"]);
-        $franquicia->setNombre($franquiciaDB["nombre_franquicia"]);
-        $franquicia->setIdLocalidad($franquiciaDB["localidades_id_localidad"]);
-        $franquicia->setGerente($franquiciaDB["gerente"]);
-        $this->db->close();
-        return $franquicia;
+  public function findById($id)
+  {
+    $this->db->connect();
+    $query = "SELECT * FROM `franquicias` WHERE `id_franquicia` = $id";
+    $franquiciaDB = $this->db->consult($query, "yes");
+    $franquiciaDB = $franquiciaDB[0];
+    $franquicia = new FranquiciaVO();
+    $franquicia->setId($franquiciaDB["id_franquicia"]);
+    $franquicia->setNombre($franquiciaDB["nombre_franquicia"]);
+    $franquicia->setIdLocalidad($franquiciaDB["localidades_id_localidad"]);
+    $franquicia->setGerente($franquiciaDB["gerente"]);
+    $this->db->close();
+    return $franquicia;
+  }
+  public function save()
+  { }
+  public function update()
+  { }
+  public function findAll()
+  {
+    $this->db->connect();
+    $query = "SELECT `id_franquicia` FROM `franquicias`";
+    $franquiciasDB = $this->db->consult($query, "yes");
+    if (count($franquiciasDB) > 0) {
+      $franquicias = [];
+      foreach ($franquiciasDB as $franquiciaDB) {
+        array_push($franquicias, $this->findById($franquiciaDB["id_franquicia"]));
+      }
+      return $franquicias;
+    } else {
+      return null;
     }
-    public function save()
-    { }
-    public function update()
-    { }
+  }
 }

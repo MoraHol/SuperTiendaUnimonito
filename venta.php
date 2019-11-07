@@ -18,7 +18,7 @@ require_once(PARTIALS_PATH . "verify_session.php");
 </head>
 
 <body>
-
+    <?php include(PARTIALS_PATH . "navbar.php") ?>
 
     <script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="/vendor/bootstrap/js/tooltip.js"></script>
