@@ -9,19 +9,19 @@ session_start();
 header("Content-Type: application/json");
 
 if (isset($_SESSION["empleado"])) {
-    $empleado = unserialize($_SESSION["empleado"]);
-    $productoDao = new ProductoDao();
-    $products = $productoDao->findByFranquicia($empleado->getIdFranquicia());
-    if (isset($_GET["dataTable"])) {
-        $response = new  stdClass();
-        $response->data = $products;
-        echo json_encode($response);
-        exit;
-    } else {
-        echo json_encode($products);
-        exit;
-    }
-} else {
-    http_response_code(401);
+  $empleado = unserialize($_SESSION["empleado"]);
+  $productoDao = new ProductoDao();
+  $products = $productoDao->findByFranquicia($empleado->getIdFranquicia());
+  if (isset($_GET["dataTable"])) {
+    $response = new  stdClass();
+    $response->data = $products;
+    echo json_encode($response);
     exit;
+  } else {
+    echo json_encode($products);
+    exit;
+  }
+} else {
+  http_response_code(401);
+  exit;
 }

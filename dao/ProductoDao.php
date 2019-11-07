@@ -31,13 +31,19 @@ class ProductoDao
     return $product;
   }
   public function save($product)
-  { }
+  {
+    $this->db->connect();
+    $query = "INSERT INTO `productos` (`id_producto`, `nombre`, `fecha_compra`, `observaciones`, `precio`, `tipo`, `cantidad`) VALUES (NULL,
+    '" . $product->getNombre() . "', '2019-11-07', '" . $product->getObservaciones() . "',
+    '" . $product->getPrecio() . "', '" . $product->getTipo() . "', '" . $product->getCantidad() . "')";
+    return $this->db->consult($query);
+  }
   public function update($product)
   { }
   public function findByFranquicia($franquicia)
   {
     $this->db->connect();
-    $query = "SELECT `productos`.`id_producto` FROM `productos` LEFT JOIN productos_especiales ON productos.id_producto = productos_especiales.id_producto WHERE productos_especiales.id_localidad = " . $franquicia->getIdLocalidad() . " OR productos_especiales.id_producto IS null";
+    $query = "SELECT `productos`.`id_producto` FROM `productos` LEFT JOIN productos_especiales ON productos.id_producto = productos_especiales.id_producto WHERE productos_especiales.id_localidad = " . $franquicia->getIdLocalidad()->getId() . " OR productos_especiales.id_producto IS null";
     $employeesDB = $this->db->consult($query, "yes");
     if (count($employeesDB) > 0) {
       $products = [];
@@ -48,5 +54,11 @@ class ProductoDao
     } else {
       return null;
     }
+  }
+  public function delete($id)
+  {
+    $this->db->connect();
+    $query = "DELETE FROM `productos` WHERE `productos`.`id_producto` = $id";
+    return $this->db->consult($query);
   }
 }

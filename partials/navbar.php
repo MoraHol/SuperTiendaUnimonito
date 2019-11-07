@@ -27,8 +27,14 @@
           <a class="dropdown-item" href="/franquicias/registro_franquicia.php">Registar Franquicia</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+      <li class="nav-item dropdown" id="productos-item">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          CRUD Productos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/productos/list_productos.php">Ver Productos</a>
+          <a class="dropdown-item" href="/productos/registro_producto.php">Registar Productos</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
