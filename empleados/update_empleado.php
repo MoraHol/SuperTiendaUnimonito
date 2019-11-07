@@ -10,7 +10,7 @@ if(isset($_GET["id"])){
   $franquiciaDao = new FranquiciaDao();
   $empleado = $empleadoDao->findById($_GET["id"]);
 }else{
-  header("Location: /empleados/lis_empleados.php");
+  header("Location: /empleados/list_empleados.php");
 }
 ?>
 

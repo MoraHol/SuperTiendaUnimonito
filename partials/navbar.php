@@ -18,13 +18,13 @@
           <!-- <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
       </li>
-      <li class="nav-item dropdown" id="empleados-item">
+      <li class="nav-item dropdown" id="franquicias-item">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           CRUD Franquicias
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/empleados/list_empleados.php">Ver Franquicias</a>
-          <a class="dropdown-item" href="/empleados/registroM.php">Registar Franquicia</a>
+          <a class="dropdown-item" href="/franquicias/list_franquicias.php">Ver Franquicias</a>
+          <a class="dropdown-item" href="/franquicias/registro_franquicia.php">Registar Franquicia</a>
         </div>
       </li>
       <li class="nav-item">

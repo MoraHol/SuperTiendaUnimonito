@@ -7,4 +7,13 @@ header("Content-Type: application/json");
 
 $franquiciaDao = new FranquiciaDao();
 
-echo json_encode($franquiciaDao->findAll());
+$franquicias = $franquiciaDao->findAll();
+if (isset($_GET["dataTable"])) {
+        $response = new  stdClass();
+        $response->data = $franquicias;
+        echo json_encode($response);
+        exit;
+    } else {
+        echo json_encode($franquicias);
+        exit;
+    }
