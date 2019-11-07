@@ -80,4 +80,8 @@ class EmpleadoVO implements JsonSerializable
     {
         $this->idLocalidad = $idLocalidad;
     }
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 }

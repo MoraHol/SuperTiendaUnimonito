@@ -35,4 +35,8 @@ class ProductoCompra implements JsonSerializable
     {
         $this->cantidad = $cantidad;
     }
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/dirs.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/dirs.php");
 
 require_once(DB_PATH . "env.php");
 require_once(DB_PATH . "DBOperator.php");
@@ -15,7 +15,7 @@ class EmpleadoDao
 
     public function findById($id)
     {
-        $this->db->conect();
+        $this->db->connect();
         $query = "SELECT * FROM `empleados` WHERE `id_empleado` = $id";
         $employeeDB = $this->db->consult($query, "yes");
         $employeeDB = $employeeDB[0];
@@ -31,26 +31,26 @@ class EmpleadoDao
     }
     public function save($employee)
     {
-        $this->db->conect();
+        $this->db->connect();
         $query = "";
         return $this->db->consult($query);
     }
     public function update($employee)
     {
-        $this->db->conect();
+        $this->db->connect();
         $query = "";
         return $this->db->consult($query);
     }
     public function delete($id)
     {
-        $this->db->conect();
+        $this->db->connect();
         $query = "";
         return $this->db->consult($query);
     }
 
     public function findByCC($cc)
     {
-        $this->db->conect();
+        $this->db->connect();
         $query = "SELECT `id_empleado` FROM `empleados` WHERE `cedula` = $cc";
         $employeeDB = $this->db->consult($query, "yes");
         if (count($employeeDB) > 0) {

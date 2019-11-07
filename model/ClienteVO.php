@@ -58,4 +58,8 @@ class ClienteVO implements JsonSerializable
     {
         $this->ciudad = $ciudad;
     }
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 }

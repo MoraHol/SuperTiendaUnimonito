@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/dirs.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/dirs.php");
 
 require_once(DB_PATH . "env.php");
 require_once(DB_PATH . "DBOperator.php");
@@ -28,19 +28,19 @@ class ClienteDao
     }
     public function save($client)
     { 
-        $this->db->conect();
+        $this->db->connect();
         $query = "";
         return $this->db->consult($query);
     }
     public function update($client)
     { 
-        $this->db->conect();
+        $this->db->connect();
         $query = "";
         return $this->db->consult($query);
     }
     public function findByCC($cc)
     { 
-        $this->db->conect();
+        $this->db->connect();
         $query = "SELECT `id_cliente` FROM `clientes` WHERE `cedula` = $cc";
         $clientDB = $this->db->consult($query, "yes");
         if (count($clientDB) > 0) {

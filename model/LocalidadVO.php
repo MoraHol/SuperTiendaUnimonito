@@ -35,4 +35,8 @@ class LocalidadVO implements JsonSerializable
   {
     $this->productosEspeciales = $productosEspeciales;
   }
+  public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 }

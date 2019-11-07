@@ -68,4 +68,8 @@ class CompraVo implements JsonSerializable
   {
     $this->productosComprados = $productosComprados;
   }
+  public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 }

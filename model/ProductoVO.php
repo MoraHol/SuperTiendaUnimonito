@@ -58,4 +58,9 @@ class ProductoVO implements JsonSerializable
   {
     $this->observaciones = $observaciones;
   }
+
+  public function jsonSerialize()
+  {
+    return get_object_vars($this);
+  }
 }
