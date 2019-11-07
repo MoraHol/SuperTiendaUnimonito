@@ -7,7 +7,29 @@ class ProductoVO implements JsonSerializable
   private $precio;
   private $tipo;
   private $observaciones;
+  private $nombre;
+  private $cantidad;
 
+
+  public function getCantidad()
+  {
+    return $this->cantidad;
+  }
+
+  public function setCantidad($cantidad)
+  {
+    $this->cantidad = $cantidad;
+  }
+
+  public function getNombre()
+  {
+    return $this->nombre;
+  }
+
+  public function setNombre($nombre)
+  {
+    $this->nombre = $nombre;
+  }
 
   public function getId()
   {

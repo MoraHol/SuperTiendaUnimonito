@@ -3,6 +3,9 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/dirs.php");
 
 require_once(DB_PATH . "env.php");
 require_once(DB_PATH . "DBOperator.php");
+require_once(MODEL_PATH . "CompraVO.php");
+require_once(MODEL_PATH . "ProductoCompraVO.php");
+require_once(MODEL_PATH . "ProductoVO.php");
 
 class CompraDao
 {

@@ -4,6 +4,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/dirs.php");
 require_once(DB_PATH . "env.php");
 require_once(DB_PATH . "DBOperator.php");
 require_once(MODEL_PATH . "EmpleadoVO.php");
+require_once(DAO_PATH . "FranquiciaDao.php");
 
 class EmpleadoDao
 {
@@ -11,6 +12,7 @@ class EmpleadoDao
     public function __construct()
     {
         $this->db = new DBOperator($_ENV["db_host"], $_ENV["db_user"], $_ENV["db_name"], $_ENV["db_pass"]);
+        $this->franquiciaDao = new FranquiciaDao();
     }
 
     public function findById($id)
@@ -25,7 +27,7 @@ class EmpleadoDao
         $employee->setCedula($employeeDB["cedula"]);
         $employee->setTelefono($employeeDB["telefono"]);
         $employee->setFechaIngreso($employeeDB["fecha_ingreso"]);
-        $employee->setIdfranquicia($employeeDB["franquicias_id_franquicia"]);
+        $employee->setIdfranquicia($this->franquiciaDao->findById($employeeDB["franquicias_id_franquicia"]));
         $this->db->close();
         return $employee;
     }
