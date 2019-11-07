@@ -3,7 +3,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/dirs.php");
 
 require_once(DB_PATH . "env.php");
 require_once(DB_PATH . "DBOperator.php");
-require_once(MODEL_PATH. "EmpleadoVO.php");
+require_once(MODEL_PATH . "EmpleadoVO.php");
 
 class EmpleadoDao
 {
@@ -30,12 +30,34 @@ class EmpleadoDao
         return $employee;
     }
     public function save($employee)
-    { }
+    {
+        $this->db->conect();
+        $query = "";
+        return $this->db->consult($query);
+    }
     public function update($employee)
-    { }
+    {
+        $this->db->conect();
+        $query = "";
+        return $this->db->consult($query);
+    }
     public function delete($id)
-    { }
+    {
+        $this->db->conect();
+        $query = "";
+        return $this->db->consult($query);
+    }
 
     public function findByCC($cc)
-    { }
+    {
+        $this->db->conect();
+        $query = "SELECT `id_empleado` FROM `empleados` WHERE `cedula` = $cc";
+        $employeeDB = $this->db->consult($query, "yes");
+        if (count($employeeDB) > 0) {
+            $employeeDB = $employeeDB[0];
+            return $this->findById($employeeDB["id_empleado"]);
+        } else {
+            return null;
+        }
+    }
 }

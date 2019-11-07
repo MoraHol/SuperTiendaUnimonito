@@ -19,11 +19,11 @@
       <center>
         <div class="middle">
           <div id="login">
-            <form action="javascript:void(0);" method="get">
+            <form action="javascript:void(0);" id="form-login">
               <fieldset class="clearfix">
-                <p><span class="fa fa-user"></span><input type="text" Placeholder="Cedula" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+                <p><span class="fa fa-user"></span><input type="text" Placeholder="Cedula" required name="cedula"></p> <!-- JS because of IE support; better: placeholder="Username" -->
                 <div>
-                  <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Sign In"></span>
+                  <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Iniciar Sesion"></span>
                 </div>
               </fieldset>
               <div class="clearfix"></div>
@@ -34,7 +34,6 @@
             <img src="/img/uniminuto.jpg" width="100">
             <div class="clearfix"></div>
           </div>
-
         </div>
       </center>
     </div>
@@ -44,6 +43,8 @@
   <script src="/vendor/bootstrap/js/tooltip.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/vendor/notify/bootstrap-notify.js"></script>
+  <script src="/js/login.js"></script>
 </body>
 
 </html>
