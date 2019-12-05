@@ -2,12 +2,14 @@
 
 class CompraVo implements JsonSerializable
 {
-  private $id;
-  private $cliente;
-  private $fecha;
-  private $monto;
-  private $descuento;
-  private $productosComprados;
+  public $id;
+  public $cliente;
+  public $fecha;
+  public $monto;
+  public $descuento;
+  public $productosComprados;
+  public $idVendedor;
+  public $idFranquicia;
 
   public function getId()
   {

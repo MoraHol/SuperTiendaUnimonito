@@ -78,7 +78,7 @@ class DBOperator
     return $this->charset;
   }
   //Fin Gets y Sets-------------------
-  function consult($mySqlOrder = "", $capture = "no")
+  function consult($mySqlOrder = "", $capture = "no", $insert_id = false)
   {
     $consult = $this->mysqliObj->query($mySqlOrder);
     //Si se desea capturar datos desde la base de datos
@@ -96,9 +96,13 @@ class DBOperator
       //----------------------------------------------------------------------------------------
       return $rowValues;
     } else {
+      if ($insert_id) {
+        return $this->mysqliObj->insert_id;
+      } else {
+        return $consult;
+      }
       /* $this->mysqliObj = new mysqli($this->host, $this->userName, $this->password, $this->dbName);
       $this->mysqliObj->query("SET NAMES '" . $this->charset . "'"); */
-      return $consult;
     }
   }
   function close()
@@ -121,7 +125,8 @@ class DBOperator
     return $this->mysqliObj->error;
   }
 
-  function errorList(){
+  function errorList()
+  {
     return $this->mysqliObj->error_list;
   }
   function begin_transaction()
@@ -144,7 +149,8 @@ class DBOperator
   {
     return $this->mysqliObj->insert_id;
   }
-  function errorno(){
+  function errorno()
+  {
     return $this->mysqliObj->errno;
   }
 }

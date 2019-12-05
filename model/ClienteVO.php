@@ -2,11 +2,11 @@
 
 class ClienteVO implements JsonSerializable
 {
-    private $id;
-    private $puntos;
-    private $cedula;
-    private $nombre;
-    private $ciudad;
+    public $id;
+    public $puntos;
+    public $cedula;
+    public $nombre;
+    public $ciudad;
 
 
     public function getId()

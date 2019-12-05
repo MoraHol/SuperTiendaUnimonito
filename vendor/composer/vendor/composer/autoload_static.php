@@ -24,6 +24,10 @@ class ComposerStaticInitdf504efc0177133dd986cd7d893e83d4
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
+        'K' => 
+        array (
+            'Karriere\\JsonDecoder\\' => 21,
+        ),
         'F' => 
         array (
             'Fig\\Http\\Message\\' => 17,
@@ -57,6 +61,10 @@ class ComposerStaticInitdf504efc0177133dd986cd7d893e83d4
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Karriere\\JsonDecoder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/karriere/json-decoder/src',
         ),
         'Fig\\Http\\Message\\' => 
         array (

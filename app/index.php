@@ -125,6 +125,7 @@ require_once(PARTIALS_PATH . "verify_session.php");
                       </tbody>
                     </table>
                   </div>
+                  <button class="btn btn-primary" id="btn-procesar">Procesar Compra</button>
                 </div>
               </div>
             </div>
