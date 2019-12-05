@@ -118,6 +118,7 @@ require_once(PARTIALS_PATH . "verify_session.php");
                       <thead class="text-primary">
                         <th>Producto</th>
                         <th>Cantidad</th>
+                        <th>Precio</th>
                         <th>Acciones</th>
                       </thead>
                       <tbody>
@@ -188,6 +189,7 @@ require_once(PARTIALS_PATH . "verify_session.php");
   <script src="/app/js/demo/chart-area-demo.js"></script>
   <script src="/app/js/demo/chart-pie-demo.js"></script>
   <script src="/vendor/notify/bootstrap-notify.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/df-number-format/2.1.6/jquery.number.min.js"></script>
   <script src="/js/clientes.js"></script>
 </body>
 

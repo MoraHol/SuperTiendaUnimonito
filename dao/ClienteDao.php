@@ -32,12 +32,14 @@ class ClienteDao
         $query = "INSERT INTO `clientes` (`id_cliente`, `puntos`, `cedula`, `nombre`, `ciudad`) VALUES 
         (NULL, '" . $client->getPuntos() . "', '" . $client->getCedula() . "', '" . $client->getNombre() . "',
          '" . $client->getCiudad() . "')";
-        return $this->db->consult($query);
+        return $this->db->consult($query,'no', true);
     }
     public function update($client)
     {
         $this->db->connect();
-        $query = "";
+        $query = "UPDATE `clientes` SET `puntos` = '" . $client->getPuntos() . "',
+         `nombre` = '" . $client->getNombre() . "', `ciudad` = '" . $client->getCiudad() . "'
+          WHERE `clientes`.`id_cliente` = " . $client->getId();
         return $this->db->consult($query);
     }
     public function findByCC($cc)

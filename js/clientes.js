@@ -8,6 +8,9 @@ $('#btn-search-cliente').click(function () {
       }, {
         type: 'warning'
       })
+      $('#nombre').val('')
+      $('#puntos').val('')
+      $('#ciudad').val('')
     } else {
       $('#nombre').val(data.nombre)
       $('#puntos').val(data.puntos)
@@ -60,8 +63,33 @@ function updateTable() {
   $('#tableProductos tbody').html('')
   productsSelected.forEach(productSel => {
     let productIn = products.filter(product => product.id == productSel.id)[0]
-    $('#tableProductos tbody').append(`<tr><td>${productIn.nombre}</td><td>${productSel.quantity}</td><td><a class="btn btn-primary" href="javascript:deleteProduct(${productIn.id})"><i class="fas fa-trash"></i></a></td></tr>`)
+    $('#tableProductos tbody').append(`<tr>
+    <td>${productIn.nombre}</td>
+    <td>${productSel.quantity}</td>
+    <td>$ ${$.number(productIn.precio * productSel.quantity, 2, ',', '.')}</td>
+    <td class="text-center">
+      <a class="btn btn-primary" href="javascript:deleteProduct(${productIn.id})">
+        <i class="fas fa-trash"></i>
+      </a>
+    </td>
+    </tr>`)
   })
+  $('#tableProductos tbody').append(`<tr>
+    <td class="text-primary">Total</td>
+    <td></td>
+    <td>$ ${$.number(sumaProductos(), 2, ',', '.')}</td>
+    <td class="text-center">
+    </td>
+    </tr>`)
+}
+
+function sumaProductos(){
+  let sum = 0
+  productsSelected.forEach(productSel => {
+    let productIn = products.filter(product => product.id == productSel.id)[0]
+    sum += productIn.precio * productSel.quantity
+  })
+  return sum
 }
 
 function deleteProduct(id) {
@@ -77,18 +105,46 @@ function deleteProduct(id) {
 }
 
 $('#btn-procesar').click(function () {
-  if (cliente != null || isFilledClient()){
-    if(cliente != null){
-      $.post(`/api/sells/new/`,{
+  if (cliente != null || isFilledClient()) {
+    if (cliente != null) {
+      $.post(`/api/sells/new/`, {
         products: JSON.stringify(productsSelected),
         client: JSON.stringify(cliente)
-      },(data,status)=>{
-
+      }, (data, status) => {
+        if (status == 'success') {
+          $.notify({
+            message: 'La compra se ha procesado'
+          }, {
+            type: 'success'
+          })
+          productsSelected = []
+          updateTable()
+        }
       })
-    }else{
-
+    } else {
+      let clienteNew = {
+        nombre: $('#nombre').val(),
+        ciudad:  $('#ciudad').val(),
+        puntos: 0,
+        cedula: $('#cedula').val(), 
+        id: null
+      }
+      $.post(`/api/sells/new/`, {
+        products: JSON.stringify(productsSelected),
+        client: JSON.stringify(clienteNew)
+      }, (data, status) => {
+        if (status == 'success') {
+          $.notify({
+            message: 'La compra se ha procesado'
+          }, {
+            type: 'success'
+          })
+          productsSelected = []
+          updateTable()
+        }
+      })
     }
-  }else{
+  } else {
     $.notify({
       message: 'Por favor ingrese el ciente'
     }, {

@@ -39,11 +39,18 @@
     $empleado = unserialize($_SESSION['empleado']);
     $jsonDecoder = new JsonDecoder();
     $productDao = new ProductoDao();
+    $clienteDao = new ClienteDao();
     $compraDao = new CompraDao();
     $post = $request->getParsedBody();
     $products = json_decode($post["products"]);
     $client = $post["client"];
     $compra = new CompraVo();
+
+    $cliente = $jsonDecoder->decode($client, ClienteVO::class);
+    if($cliente->getId() == null){
+      $cliente->setId($clienteDao->save($cliente));
+    }
+
 
     $productsArr = [];
     foreach ($products as $product) {
@@ -55,11 +62,14 @@
     }
     $compra->setProductosComprados($products);
     $compra->setMonto($monto);
-    $compra->setCliente($jsonDecoder->decode($client, ClienteVO::class));
+    $compra->setCliente($cliente);
     $compra->setDescuento(0);
     $compra->idFranquicia = $empleado->getIdfranquicia()->getId();
     $compra->idVendedor = $empleado->getId();
     if($compraDao->save($compra) > 0){
+      $puntos = ceil($monto / 10000) * 10;
+      $compra->getCliente()->setPuntos($compra->getCliente()->getPuntos() + $puntos);
+      $clienteDao->update($compra->getCliente());
       return $response->withStatus(201);
     }else{
       return $response->withStatus(500);
