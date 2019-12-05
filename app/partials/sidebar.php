@@ -61,9 +61,9 @@
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Ver Productos</a>
-                <a class="collapse-item" href="cards.html">Registrar Producto</a>
+                <h6 class="collapse-header">Opciones:</h6>
+                <a class="collapse-item" href="/app/productos/list_productos.php">Ver Productos</a>
+                <a class="collapse-item" href="/app/productos/registro_producto.php">Registrar Producto</a>
             </div>
         </div>
     </li>

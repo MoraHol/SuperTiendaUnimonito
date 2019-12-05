@@ -14,7 +14,7 @@ class ClienteDao
     public function findById($id)
     {
         $this->db->connect();
-        $query = "";
+        $query = "SELECT * FROM `clientes` WHERE `id_cliente` = $id";
         $clientDB = $this->db->consult($query, "yes");
         $clientDB = $clientDB[0];
         $client = new ClienteVO();
@@ -43,7 +43,7 @@ class ClienteDao
     public function findByCC($cc)
     {
         $this->db->connect();
-        $query = "SELECT `id_cliente` FROM `clientes` WHERE `cedula` = $cc";
+        $query = "SELECT `id_cliente` FROM `clientes` WHERE `cedula` = '$cc'";
         $clientDB = $this->db->consult($query, "yes");
         if (count($clientDB) > 0) {
             $clientDB = $clientDB[0];

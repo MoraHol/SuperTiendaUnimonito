@@ -117,14 +117,14 @@
 <script src="/app/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="/app/vendor/js/sb-admin-2.min.js"></script>
+<script src="/app/js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<script src="/app/vendor/vendor/chart.js/Chart.min.js"></script>
+<script src="/app/vendor/chart.js/Chart.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="/app/vendor/js/demo/chart-area-demo.js"></script>
-<script src="/app/vendor/js/demo/chart-pie-demo.js"></script>
+<script src="/app/js/demo/chart-area-demo.js"></script>
+<script src="/app/js/demo/chart-pie-demo.js"></script>
 
 <script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
 <script src="/vendor/bootstrap/js/tooltip.js"></script>
