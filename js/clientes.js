@@ -11,6 +11,7 @@ $('#btn-search-cliente').click(function () {
       $('#nombre').val('')
       $('#puntos').val('')
       $('#ciudad').val('')
+      cliente = null
     } else {
       $('#nombre').val(data.nombre)
       $('#puntos').val(data.puntos)
