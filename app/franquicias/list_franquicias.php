@@ -19,7 +19,10 @@
     <link href="/app/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="/vendor/dataTables/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/dataTables/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/dataTables/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/font-awesome/font-awesome.min.css">
     <!-- Custom styles for this template-->
     <link href="/app/css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -37,73 +40,47 @@
         <!-- Main Content -->
         <div id="content">
           <?php include(PARTIALS_PATH . 'navbar.php'); ?>
+
             <!-- Begin Page Content -->
             <div class="container-fluid">
+
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Registro de empleado</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Ventas</h1>
                 </div>
+
                 <!-- Content Row -->
-                <div class="row justify-content-center">
-                    <form class="form" id="form-registro-empleado">
+                <div class="row">
+                    <div class="card-body">
+                        <div class="table-responsive table-hover tableFixHead">
+                            <table class="table" id="tableFranquicias">
+                                <thead class="text-primary">
+                                <th>Nombre</th>
+                                <th>Localidad</th>
+                                <th>Acciones</th>
+                                </thead>
+                                <tbody>
 
-                        <div class="col">
-                            <div class="row">
-                                <label for="nombres">Nombres</label>
-                                <input type="text" name="nombres" class="form-control"
-                                       placeholder="Nombres" required>
-                            </div>
-                            <div class="row">
-                                <label for="nombres">Apellidos</label>
-                                <input type="text" name="apellidos" class="form-control"
-                                       placeholder="Apellidos" required>
-                            </div>
-                            <div class="row">
-                                <label for="state">Tipo de documento:</label>
-                                <select class="form-control" id="state" required>
-                                    <option value="C.C.">Cedula de ciudadania</option>
-                                    <option value="D.E.">Documento Extranjero</option>
-                                </select>
-                            </div>
-                            <div class="row">
-                                <label for="nombres">Numero de documento</label>
-                                <input type="number" name="numeroDocumento" class="form-control"
-                                       placeholder="Numero de documento" required>
-                            </div>
-                            <div class="row">
-                                <label for="nombres">Telefono</label>
-                                <input type="number" name="telefono" class="form-control"
-                                       placeholder="Telefono" required>
-                            </div>
-                            <div class="row">
-
-
-                                <label for="nombres">Salario a asignar: </label>
-                                <input type="number" name="salary" class="form-control"
-                                       placeholder="Salario" step="any" required>
-
-
-                                <label for="franquicias-select">Franquicia a asignar:</label>
-                                <select class="form-control" name="franquicia" id="franquicias-select"
-                                        required>
-                                    <select></select>
-
-                            </div>
-
-                            <div class="row mt-4" id="button-sub">
-                                <button type="submit" class="btn btn-dark">Registrar Empleado</button>
-                            </div>
-
+                                </tbody>
+                            </table>
                         </div>
-                    </form>
+                    </div>
                 </div>
+
+                <!-- Content Row -->
+
+
             </div>
             <!-- /.container-fluid -->
+
         </div>
         <!-- End of Main Content -->
+
       <?php include(PARTIALS_PATH . 'footer.php'); ?>
+
     </div>
     <!-- End of Content Wrapper -->
+
 </div>
 <!-- End of Page Wrapper -->
 
@@ -148,12 +125,21 @@
 <!-- Page level custom scripts -->
 <script src="/app/vendor/js/demo/chart-area-demo.js"></script>
 <script src="/app/vendor/js/demo/chart-pie-demo.js"></script>
+
+<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="/vendor/bootstrap/js/tooltip.js"></script>
+<script src="/vendor/bootstrap/js/popper.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="/vendor/notify/bootstrap-notify.js"></script>
-<script src="/js/registroEmpleado.js"></script>
+<script type="text/javascript" src="/vendor/dataTables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/vendor/dataTables/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="/vendor/dataTables/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="/js/franquicias.js"></script>
 <script type="text/javascript">
     $('#ventas-item').removeClass('active')
-    $('#empleados-item').addClass('active')
+    $('#franquicias-item').addClass('active')
 </script>
+
 </body>
 
 </html>
