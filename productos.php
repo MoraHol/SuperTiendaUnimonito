@@ -20,7 +20,7 @@ require_once(PARTIALS_PATH . "verify_session.php");
     background-image: radial-gradient(circle, #32373b, #2b363d, #23343e, #183340, #083241); }
   </style>
 	<body>
-	<?php include(PARTIALS_PATH . "navbar.php") ?>
+	<?php include(PARTIALS_PATH . "sidebar.php") ?>
 	
 	<div class="container-fluid  text-center" style="height: 50px;">
 	

@@ -22,7 +22,7 @@ require_once(PARTIALS_PATH . "verify_session.php");
 </head>
 
 <body>
-  <?php include(PARTIALS_PATH . "navbar.php") ?>
+  <?php include(PARTIALS_PATH . "sidebar.php") ?>
 
   <div class="card-body">
     <div class="table-responsive table-hover tableFixHead">

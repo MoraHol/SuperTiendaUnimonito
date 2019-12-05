@@ -14,7 +14,7 @@ define('DAO_PATH', ROOT_PATH . 'dao/');
 /**
  * Ruta de los partials de la app
  */
-define('PARTIALS_PATH', ROOT_PATH . 'partials/');
+define('PARTIALS_PATH', ROOT_PATH . '/app/partials/');
 /**
  * ruta de la todo lo que tiene que ver con la base de datos
  */

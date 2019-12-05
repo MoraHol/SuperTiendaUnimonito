@@ -7,7 +7,7 @@ $empleadoDao = new EmpleadoDao();
 if (!isset($_SESSION)) {
   session_start();
   if (!isset($_SESSION["empleado"])) {
-    header("Location: /");
+    header("Location: /index.php");
   } else {
     $empleado = unserialize($_SESSION["empleado"]);
   }

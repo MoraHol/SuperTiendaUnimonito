@@ -18,7 +18,7 @@
 
 <body>
   <?php include_once($_SERVER['DOCUMENT_ROOT'] . '/dirs.php');
-  include(PARTIALS_PATH . "navbar.php");  ?>
+  include(PARTIALS_PATH . "sidebar.php");  ?>
 
   <div class="p-3 mb-2 bg-primary text-white">
     <h1 id="tituloPrincipal">Registro
